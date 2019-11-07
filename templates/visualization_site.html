@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>可视化交互式页面</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">MGViewer</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<div>
+    <div class="jumbotron">
+        <h3 align="center">Welcome to data visualization page!</h3>
+        <p align="center">In this page, you can see block of chromosomes from various spices or genome.In the
+            left box,<br>the landscape can be shown as an highresolution and you can download it with a pdf format.</p>
+        <p align="center">Now, please submmit your data and show it in flow!</p>
+        <center><button type="button" class="btn btn-info btn-lg">Submit</button></center>
+    </div>
+</div>
+    <div class="container">
+      <!-- three cols viewport -->
+        <div class="row">
+            <!-- 左侧面板栏 -->
+            <div class="col-xs-2">
+                <h2>Heading</h2>
+                <p>Left Bottom Group</p>
+                <p>
+                    <botton type="botton" class="btn btn-info btn-block">Whole Ideogram Mode</botton>
+                </p>
+                <p>
+                    <botton type="botton" class="btn btn-info btn-block">Block Mode</botton>
+                </p>
+                <p>
+                    <botton type="botton" class="btn btn-info btn-block">Single Gene Mode</botton>
+                </p>
+            </div>
+            <div class="col-xs-7">
+                <!-- 中央图片展示面板 -->
+                <img src={{fig}} alt="upload-pidture" class="img-responsive img-thumbnail"/>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-xs-3">
+              <!-- 右侧操纵面板 -->
+                <center><h2>Operation Panel</h2></center>
+                <form class="form-horizontal" action="/operation"  method="Post">
+                    <script>
+                        var Array_von_python = {{data | safe}};  // 无法实现jinja2的模板传参，故放在HTML中
+                    </script>
+                    <script src="../static/dropdown.js"></script>
+                    <p>
+                        <button type="submit" class="btn btn-info btn-block">提交</button>
+                    </p>
+                </form>
+            </div>
+            <div class="container">
+                <footer style="position:fixed;left:0;bottom:0">
+                <p>&copy; Designed by Luo Shitao, SouthWest University.</p>
+                </footer>
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
