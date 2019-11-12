@@ -180,7 +180,7 @@
 }
 
  .navbar-collapse a {
-   font-size: 20px;
+   font-size: 14px;
    font-family: 微软雅黑, serif;
   }
 
@@ -190,9 +190,9 @@
  }
 
 .navbar-brand {
-  padding: 15px 45px;
+  padding: 10px 44px;
   opacity: 80%;
-  font-size: 30px;
+  font-size: 20px;
   font-family: 微软雅黑, serif;
   line-height: 100%;
   border-right-color: #e8e8e8;
@@ -201,4 +201,8 @@
 
 .navbar-header{
   border-right:3px solid #e8e8e8
+}
+
+.svg-anchor {
+  position: absolute;
 }

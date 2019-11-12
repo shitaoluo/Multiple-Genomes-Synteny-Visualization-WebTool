@@ -15,7 +15,7 @@ function customized_sankey_chart(callbackDom, outside_object){
     }
 
     function str2num(data){   // 函数用于静态的将外部传入的数据中每个可能的字符串变为数字
-        let datatype = justice_type(data)
+        let datatype = justice_type(data);
         if(datatype == "string"){
             data = parseFloat(data);
             return data
@@ -74,9 +74,8 @@ function customized_sankey_chart(callbackDom, outside_object){
     var anchor = document.getElementById("svg-anchor")
     var width = anchor.clientWidth;
     var height = anchor.clientHeight;
-    var padding = {left: 30, right: 30, top: 40, bottom: 40};
-    var svg = d3.select("#svg-anchor")
-        .append("svg")
+    var padding = {left: 60, right: 40, top: 40, bottom: 40};
+    var svg = d3.select("#chart")
         .attr("width", width)
         .attr("height", height);
 
@@ -505,4 +504,23 @@ function customized_sankey_chart(callbackDom, outside_object){
 
         restGroup.attr("display", "block");
     })
+
+    // 设置每个染色体底部的标签
+    var texts = svg.selectAll(".mytest")
+        .data(d3.range(0, t_dataset[0].length))
+        .enter()
+        .append("text")
+        .attr("class","MyText")
+        .attr("transform","translate(" + padding.left + "," + padding.top + ")")
+        .attr("x", function(d,i){
+            return xScale(i)
+        } )
+        .attr("y", function(d,i){
+            return yScale(padding.top/2)
+        })
+        .text(function(d,i) {
+            return "Ideogram" + (+d + 1)
+        })
 }
+
+
